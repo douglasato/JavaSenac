@@ -139,7 +139,8 @@ public class MenuFrame extends JFrame
 
       formatMenu.add(fontMenu); // add Font menu to Format menu
       bar.add(formatMenu); // add Format menu to menu bar
-     
+      bar.add(Arquivo);
+
       // set up label to display text
       displayJLabel = new JLabel("Sample Text", SwingConstants.CENTER);
       displayJLabel.setForeground(colorValues[0]);
