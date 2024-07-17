@@ -1,5 +1,9 @@
-import javax.swing.*;
-import java.util.concurrent.*;
+// Fig. 20.24: BackgroundCalculator.java
+// SwingWorker subclass for calculating Fibonacci numbers
+// in a background thread.
+import javax.swing.SwingWorker;
+import javax.swing.JLabel;
+import java.util.concurrent.ExecutionException;
 
 public class BackgroundCalculator extends SwingWorker< Long, Object >
 {
