@@ -11,7 +11,6 @@ public class MenuFrame extends JFrame
    private final JRadioButtonMenuItem[] colorItems; // color menu items
    private final JRadioButtonMenuItem[] fonts; // font menu items
    private final JCheckBoxMenuItem[] styleItems; // font style menu items
-   private final JCheckBoxMenuItem[] alinhatexto; // font style para alinhar texto
    private final JLabel displayJLabel; // displays sample text
    private final ButtonGroup fontButtonGroup; // manages font menu items
    private final ButtonGroup colorButtonGroup; // manages color menu items
@@ -73,34 +72,34 @@ public class MenuFrame extends JFrame
       Editar.setMnemonic('e'); // setMnemonic -> método que cria um atalho para acessar o menu ALT + e
 
       // array listing string colors
-      String[] colors = {"Black", "Blue", "Red", "Green", "Cyan", "DarkGray", "White"};
+      String[] names = {"Gustavo", "Gabriel", "Lucas", "Matheus", "Daniel", "Julio", "Angelo", "Enrique", "Germano", "Farias", "Douglas", "Rafael", "Felipe"};
 
-      JMenu colorMenu = new JMenu("Color"); // create color menu
+      JMenu namesMenu = new JMenu("Names"); // create names menu
       // JMenu BackgroundColor = new JMenu("Background-Color"); // cria menu background
-      colorMenu.setMnemonic('C'); // set mnemonic to C
+      namesMenu.setMnemonic('N'); // set mnemonic to N
 
       // create radio button menu items for colors
-      colorItems = new JRadioButtonMenuItem[colors.length];
+      colorItems = new JRadioButtonMenuItem[names.length];
       colorButtonGroup = new ButtonGroup(); // manages colors
       ItemHandler itemHandler = new ItemHandler(); // handler for colors
 
       // create color radio button menu items
-      for (int count = 0; count < colors.length; count++) 
+      for (int count = 0; count < names.length; count++) 
       {
          colorItems[count] = 
-            new JRadioButtonMenuItem(colors[count]); // create item
-         colorMenu.add(colorItems[count]); // add item to color menu
+            new JRadioButtonMenuItem(names[count]); // create item
+         namesMenu.add(colorItems[count]); // add item to color menu
          colorButtonGroup.add(colorItems[count]); // add to group
          colorItems[count].addActionListener(itemHandler);
       }
 
       colorItems[0].setSelected(true); // select first Color item
 
-      formatMenu.add(colorMenu); // add color menu to format menu
+      formatMenu.add(namesMenu); // add color menu to format menu
       formatMenu.addSeparator(); // add separator in menu
 
       // array listing font names
-      String[] fontNames = {"Serif", "Monospaced", "SansSerif", "Times New Roman", "Arial"};
+      String[] fontNames = { "Serif", "Monospaced", "SansSerif"};
       JMenu fontMenu = new JMenu("Font"); // create font menu
       fontMenu.setMnemonic('n'); // set mnemonic to n
 
@@ -133,9 +132,9 @@ public class MenuFrame extends JFrame
          styleItems[count].addItemListener(styleHandler); // handler
       }
 
-      String[] alignText = {"Left", "Center", "Right"};
-      alinhatexto = new JCheckBoxMenuItem[styleNames.length];
-      StyleHandler AlinhaTexto = new StyleHandler();
+      // String[] alignText = {"Left", "Center", "Right"};
+      // alinhatexto = new JCheckBoxMenuItem[styleNames.length];
+      // StyleHandler AlinhaTexto = new StyleHandler();
 
       // for (int count = 0; count < styleNames.length; count++) 
       // {
