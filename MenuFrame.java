@@ -11,7 +11,7 @@ public class MenuFrame extends JFrame
    private final JRadioButtonMenuItem[] colorItems; // color menu items
    private final JRadioButtonMenuItem[] fonts; // font menu items
    private final JCheckBoxMenuItem[] styleItems; // font style menu items
-   private final JCheckBoxMenuItem[] AlinhaTexto; // font style para alinhar texto
+   private final JCheckBoxMenuItem[] alinhatexto; // font style para alinhar texto
    private final JLabel displayJLabel; // displays sample text
    private final ButtonGroup fontButtonGroup; // manages font menu items
    private final ButtonGroup colorButtonGroup; // manages color menu items
@@ -46,6 +46,7 @@ public class MenuFrame extends JFrame
       JMenuItem exitItem = new JMenuItem("Exit"); // create exit item
       exitItem.setMnemonic('x'); // set mnemonic to x
       fileMenu.add(exitItem); // add exit item to file menu
+
       exitItem.addActionListener(
          new ActionListener() // anonymous inner class
          {  
@@ -66,14 +67,13 @@ public class MenuFrame extends JFrame
       formatMenu.setMnemonic('r'); // set mnemonic to r
       
       JMenu Arquivo = new JMenu("Arquivo"); // create Arquivo menu
-      Arquivo.setMnemonic('r');
+      Arquivo.setMnemonic('a');
 
       JMenu Editar = new JMenu("Editar"); // create Editar menu
-      Editar.setMnemonic('r');
+      Editar.setMnemonic('e'); // setMnemonic -> método que cria um atalho para acessar o menu ALT + e
 
       // array listing string colors
       String[] colors = {"Black", "Blue", "Red", "Green", "Cyan", "DarkGray", "White"};
-      // String[] backgroundcolor = {"Black", "Blue", "Red", "Green"};
 
       JMenu colorMenu = new JMenu("Color"); // create color menu
       // JMenu BackgroundColor = new JMenu("Background-Color"); // cria menu background
@@ -124,10 +124,6 @@ public class MenuFrame extends JFrame
       styleItems = new JCheckBoxMenuItem[styleNames.length];
       StyleHandler styleHandler = new StyleHandler(); // style handler
 
-      String[] alignText = {"Left", "Center", "Right"};
-      AlinhaTexto = new JCheckBoxMenuItem[styleNames.length];
-      StyleHandler AlinhaTexto = new StyleHandler();
-
       // create style checkbox menu items
       for (int count = 0; count < styleNames.length; count++) 
       {
@@ -137,9 +133,22 @@ public class MenuFrame extends JFrame
          styleItems[count].addItemListener(styleHandler); // handler
       }
 
+      String[] alignText = {"Left", "Center", "Right"};
+      alinhatexto = new JCheckBoxMenuItem[styleNames.length];
+      StyleHandler AlinhaTexto = new StyleHandler();
+
+      // for (int count = 0; count < styleNames.length; count++) 
+      // {
+      //    alinhatexto[count] = 
+      //       new JCheckBoxMenuItem(AlinhaTexto[count]); // for style
+      //    fontMenu.add(alinhatexto[count]); // add to font menu
+      //    alinhatexto[count].addItemListener(styleHandler); // handler
+      // }
+
       formatMenu.add(fontMenu); // add Font menu to Format menu
       bar.add(formatMenu); // add Format menu to menu bar
-      bar.add(Arquivo);
+      bar.add(Arquivo);    // add Arquivo menu to menu bar
+      bar.add(Editar);     // add Editar menu to menu bar
 
       // set up label to display text
       displayJLabel = new JLabel("Sample Text", SwingConstants.CENTER);
