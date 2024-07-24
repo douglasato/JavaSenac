@@ -6,7 +6,7 @@ public class ConsultarBancodeDados {
             Connection conexao = MySQLConnector.conectar();
             String strSqlPesquisaRegistro = "select * from where `db_teste`.`tbl_teste` where 'nome' = 'Teste';";
             Statement stmSqlPesquisaRegistro = conexao.createStatement();
-            ResultSet resultado = stmSqlPesquisaRegistro.executeQuery(stmSqlPesquisaRegistro);
+            ResultSet resultado = stmSqlPesquisaRegistro.executeQuery(strSqlPesquisaRegistro);
 
             while(resultado.next()){
                 System.out.println(resultado.getString ("email"));
