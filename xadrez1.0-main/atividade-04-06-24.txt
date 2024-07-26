@@ -1,0 +1,27 @@
+    case "torre":
+	movimentoPermitido = 
+            moverTorre(pecaClicada, elementoDestino);
+        break;
+
+function moverTorre(pecaAnalisada, elementoDestino) {
+   if (coluna_do_destino == coluna_da_peca) {
+       let permitirMovimento = true;
+       let linha_do_destino = linha_destino_quadrante + 1;
+       let linha_do_elemento = pecaClicada.linha;
+       let linha_quadrante_atual;
+       for (
+           let q = linha_do_destino;
+           q < linha_do_elemento;
+           q++
+       ) {
+           linha_quadrante_atual = 
+               document.getElementById(
+                   "celula_" + coluna_da_linha + "_" + q
+               );
+           if (linha_quadrante_atual.innerHTML != "") {
+               permitirMovimento = false;
+           }
+       }
+       return permitirMovimento;
+   }
+}
