@@ -151,7 +151,7 @@ public class FrameNome extends JFrame{
                 public void actionPerformed(ActionEvent event){
                     boolean resultado;
                     try {
-                        resultado = NavegarRegistro.deletarRegistro("db_teste", "tbl_teste", "6");
+                        resultado = ExcluirRegistro.deletarRegistro("db_teste", "tbl_teste", "6");
                         notificacaoJLabel.setText("Registro deletado com sucesso");
                         // deletando registro;
                     } catch (Exception e) {
