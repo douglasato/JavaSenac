@@ -1,11 +1,11 @@
 import java.sql.*;
 
 public class InserirRegistro {
-    public static String cadastrar(String db, String tbl, String campoID, String camponome, String campoemail, String camposenha, String id, String nome, String email, String senha) {
+    public static String cadastrar(String db, String tbl, String camponome, String campoemail, String camposenha, String nome, String email, String senha) {
         String retorno = "nada aconteceu ainda...";
         try {
             Connection conexao = MySQLConnector.conectar();
-            String strSqlInserirRegistro = "INSERT INTO `" + db + "`.`" + tbl + "` (`" + campoID + "`, `" + camponome + "`, `" + campoemail + "`, `" + camposenha + "`) VALUES ('" + id + "', '" + nome + "', '" + email + "', '" + senha + "');";
+            String strSqlInserirRegistro = "INSERT INTO `" + db + "`.`" + tbl + "` (`" + camponome + "`, `" + campoemail + "`, `" + camposenha + "`) VALUES ('" + nome + "', '" + email + "', '" + senha + "');";
             // ('nome', 'email', 'senha') values(\'Teste', \'testeteste.teste\', \'senhaTeste\')
             Statement stmSqlInserirRegistro = conexao.createStatement();
             stmSqlInserirRegistro.addBatch(strSqlInserirRegistro);
