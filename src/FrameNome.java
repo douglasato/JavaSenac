@@ -236,13 +236,30 @@ public class FrameNome extends JFrame{
             new ActionListener(){
                 public void actionPerformed(ActionEvent event){
 
-            }
+                    try {
+                        TelaPesquisa pesquisa = new TelaPesquisa(); 
+                        pesquisa.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+                        editarJButton.setEnabled(false);
+                        novoJButton.setEnabled(false);
+                        pesquisar.setEnabled(true);
+                        deletar.setEnabled(false);
+
+                        primeiroRegistro.setEnabled(false);
+                        anterior.setEnabled(false);
+                        proximo.setEnabled(false);
+                        ultimoRegistro.setEnabled(false);
+                    } catch (Exception e) {
+                        System.out.println("algo não deu certo, erro: " + e);                    
+                    }
+                }
             }
         );
 
         novoJButton.addActionListener(
             new ActionListener() {
                 public void actionPerformed(ActionEvent event) {
+
                     try {
                         idValor.setText("");
                         nomeJTextField.setText("");
@@ -319,11 +336,9 @@ public class FrameNome extends JFrame{
             nomeJTextField.setText(resultado[1]);
             JTextFieldemail.setText(resultado[2]);
 
-
         } catch (Exception e) {
             // TODO: handle exception
         }
-        
         
     }
     public static void main(String[] args) {
