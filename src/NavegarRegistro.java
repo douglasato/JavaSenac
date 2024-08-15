@@ -11,7 +11,6 @@ public class NavegarRegistro{
             rstSqlPrimeiroRegistro.getString("id"),
             rstSqlPrimeiroRegistro.getString("nome"),
             rstSqlPrimeiroRegistro.getString("email"),
-            rstSqlPrimeiroRegistro.getString("senha")
         }
             ;
         stmSqlPrimeiroRegistro.close();
@@ -19,8 +18,10 @@ public class NavegarRegistro{
     }
     public static String[] RegistroAnterior(String db, String tbl, String id) throws Exception {
         Connection conexao = MySQLConnector.conectar();
+
         int idPessoa = Integer.parseInt(id);
         int proximoId = idPessoa - 1;
+
         if (proximoId >= 1) {
             String strSqlRegistroAnterior = "select * from `" + db + "`.`" + tbl + "` order by `id` desc;";
             Statement stmSqlRegistroAnterior = conexao.createStatement();
@@ -54,6 +55,7 @@ public class NavegarRegistro{
             String[] resultado = {"","",""};
             while (rstSqlProximoRegistro.next()) {
                 if (id.equals(rstSqlProximoRegistro.getString("id"))) {
+                    System.out.print(id);
                     rstSqlProximoRegistro.next();
                     resultado[0] = rstSqlProximoRegistro.getString("id");
                     resultado[1] = rstSqlProximoRegistro.getString("nome");
@@ -90,31 +92,18 @@ public class NavegarRegistro{
     public static boolean atualizarRegistro(String db, String tbl, String id, String nome, String email, char[] senha) throws Exception {       
         try {
             Connection conexao = MySQLConnector.conectar();
-            String strSqlatualizarRegistro = "update `" + db + "`.`" + tbl + "` set `nome` = '" + nome + "', `email` = '" + email + "',  `senha` = '" + String.valueOf(senha) + "' where `id` = "+ id + ";" ;
-            Statement stmSqlatualizarRegistro = conexao.createStatement();
-            stmSqlatualizarRegistro.addBatch(strSqlatualizarRegistro);
-            stmSqlatualizarRegistro.executeBatch();
-            stmSqlatualizarRegistro.close();
+            String strSqlUltimoRegistro = "update `" + db + "`.`" + tbl + "` set `nome` = '" + nome + "', `email` = '" + email + "', `senha` = '" + String.valueOf(senha) + "' where `id` = " + id + ";";
+            Statement stmSqlUltimoRegistro = conexao.createStatement();
+            stmSqlUltimoRegistro.addBatch(strSqlUltimoRegistro);
+            stmSqlUltimoRegistro.executeBatch();
+            stmSqlUltimoRegistro.close();
             return true;
         } catch (Exception e) {
             System.out.println(e);
             return false;
         }
     }
-    public static boolean deletarRegistro(String db, String tbl, String id) throws Exception {
-        try {
-            Connection conexao = MySQLConnector.conectar();
-            String strSqldeletarRegistro = "DELETE FROM `db_teste`.`tbl_teste` WHERE `id` = " + id + ";";
-            Statement stmSqldeletarRegistro = conexao.createStatement();
-            stmSqldeletarRegistro.addBatch(strSqldeletarRegistro);
-            stmSqldeletarRegistro.executeBatch();
-            stmSqldeletarRegistro.close();
-            return true;
-        } catch (Exception e) {
-            System.out.println(e);
-            return false;
-        }
-    }
+
     public static int ProximoId(String db, String tbl) throws SQLException {
         int proximoId = 0;
         Connection conexao = MySQLConnector.conectar();
