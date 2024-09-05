@@ -32,10 +32,44 @@ public class TelaAtualizar extends JFrame{
 
     public TelaAtualizar(){
 
-        super("Atualizar");
-        setLayout(new GridLayout(4,4,4,4));
+        super("Atualizar Registro");
+        setLayout(new GridLayout(6,1,5,5));
 
-        idValor.setEnabled(false);
+        JPanel pnlLinha1 = new JPanel(new GridLayout(1,1,5,5));
+        JPanel pnlLinha2 = new JPanel(new GridLayout(1,1,5,5));
+        JPanel pnlLinha3 = new JPanel(new GridLayout(1,1,5,5));
+        JPanel pnlLinha4 = new JPanel(new GridLayout(1,1,5,5));
+        JPanel pnlLinha5 = new JPanel(new GridLayout(1,1,5,5));
+        JPanel pnlLinha6 = new JPanel(new GridLayout(1,1,5,5));
+        JPanel pnlLinha7 = new JPanel(new GridLayout(1,2,5,5));
+        JPanel pnlLinha8 = new JPanel(new GridLayout(1,1,5,5));
+        JPanel pnlLinha9 = new JPanel(new GridLayout(1,1,5,5));
+        JPanel pnlLinha10 = new JPanel(new GridLayout(1,1,5,5));
+    
+    add(id);
+    pnlLinha1.add(idValor);    
+    add(nome);
+    pnlLinha2.add(nomeJTextField);
+    add(pnlLinha2);
+
+    add(email);
+    pnlLinha3.add(JTextFieldemail);
+    add(pnlLinha3);
+    add(senha);
+    pnlLinha4.add(JTextFieldsenha);
+    add(pnlLinha4);
+
+    add(primeiroRegistro);
+    add(anterior);
+    add(proximo);
+    add(ultimoRegistro);
+    add(atualizar);
+    add(notificacaoJLabel);
+
+    idValor.setEnabled(false);
+    
+    setSize(500, 250);
+    setVisible(true);
 
         primeiroRegistro.addActionListener(
             new ActionListener() {
@@ -128,7 +162,8 @@ public class TelaAtualizar extends JFrame{
                         // atualizarRegistro.setEnabled(true);
                         // atualizando os campos deixando em branco
                     } catch (Exception e) {
-                        System.out.println();
+                        System.out.println(e);
+                        notificacaoJLabel.setText("Deu ruim, tente outra hora");
                         return;
                     }
                     if(att){
@@ -139,38 +174,6 @@ public class TelaAtualizar extends JFrame{
                 }
             }
         );
-    
-    add(id);
-    add(idValor);
-    add(new JLabel());
-    add(nome);
-    add(nomeJTextField);
-    add(new JLabel());
-    add(new JLabel());
-
-    add(email);
-    add(JTextFieldemail);
-    add(new JLabel());
-    add(senha);
-    add(JTextFieldsenha);
-    add(new JLabel());
-    add(new JLabel()); 
-    add(new JLabel());
-    add(new JLabel());
-    add(new JLabel()); 
-    add(new JLabel());
-    add(new JLabel());
-    add(new JLabel());
-    add(new JLabel());
-  
-    add(primeiroRegistro);
-    add(anterior);
-    add(proximo);
-    add(ultimoRegistro);
-    add(atualizar);
-
-    setSize(450, 250);
-    setVisible(true);
 
     try {
         String[] resultado = NavegarRegistro.primeiroRegistro("db_teste", "tbl_teste");
