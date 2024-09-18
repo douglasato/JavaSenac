@@ -168,11 +168,12 @@ public class DespertadorView {
             System.err.println("Ops! Digite um número igual ou maior que: " + segundoAtual + " e tente novamente.");
             configurarSegundo();
             }
+        }
         if(segundoDespertar > maxSegundo){
-            System.err.println("Por favor digite um número igual ou menor que " + maxSegundo + "e tente novamente.");
+            System.err.println("Por favor digite um número igual ou menor que " + maxSegundo + " e tente novamente.");
             configurarSegundo();
         }    
-        }
+        
     }
 
     public static void sairDoSistema() {
