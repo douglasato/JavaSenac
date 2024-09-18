@@ -62,7 +62,9 @@ public class DespertadorView {
             int horaFalta = horaDespertar - horaAtual;
             int segundoFalta = segundoDespertar - segundoAtual;
             if(horaFalta >= 0){
-                horaFalta = horaFalta;
+                if(minutoFalta < 0){
+                horaFalta = horaFalta - 1;
+                }
             }else{
                 horaFalta = horaFalta - 1;
             }
