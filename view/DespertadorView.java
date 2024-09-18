@@ -8,7 +8,7 @@ public class DespertadorView {
     public static int segundoDespertar;
 
     public static int adiar = 10; // minutos
-    public static int[] adiamentos = {1, 5, 10, 15};
+    public static int[] adiamentos = {1, 5, 10, 15, 30};
     public static int qtdAdiamento = 3;
     public static int adiamentoAtual = 0;
 
@@ -58,10 +58,27 @@ public class DespertadorView {
 
         while (sair == false) {
             DespertadorController.getHMS();
-
+            int minutoFalta = minutoDespertar - minutoAtual - 1;
+            int horaFalta = horaDespertar - horaAtual;
+            int segundoFalta = segundoDespertar - segundoAtual;
+            if(horaFalta >= 0){
+                horaFalta = horaFalta;
+            }else{
+                horaFalta = horaFalta - 1;
+            }
+            if(minutoFalta >= 0){
+                minutoFalta = minutoFalta;
+            }else{
+                minutoFalta = minutoFalta + 60;
+            }
+            if(segundoFalta >= 0){
+                segundoFalta = segundoFalta;
+            }else{
+                segundoFalta = segundoFalta + 60;
+            }
             System.out.println(
                 String.format(
-                    "Agora são: %s%d:%d:%d%s. O próximo alarme irá despertar às %s%d:%d:%d%s. Adiado %s%d%s vez(es).", 
+                    "Agora são: %s%02d:%02d:%02d%s. O próximo alarme irá despertar às %s%02d:%02d:%02d%s. Adiado %s%02d%s vez(es). Seu despertador tocará em: %s%02d:%02d:%02d%s", 
                     ANSI_YELLOW,
                     horaAtual, 
                     minutoAtual, 
@@ -74,7 +91,12 @@ public class DespertadorView {
                     ANSI_RESET,
                     ANSI_GREEN,
                     adiamentoAtual,
-                    ANSI_RESET
+                    ANSI_RESET,
+                    ANSI_GREEN,
+                    horaFalta,
+                    minutoFalta,
+                    segundoFalta,
+                    ANSI_GREEN
                 )
             );
 
