@@ -1,4 +1,3 @@
-package view;
 import javax.swing.*;
 import java.nio.file.*;
 import java.io.*;
