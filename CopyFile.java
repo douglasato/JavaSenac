@@ -1,5 +1,3 @@
-package view;
-
 import javax.swing.*;
 import static java.nio.file.StandardCopyOption.*;
 import java.nio.file.*;
