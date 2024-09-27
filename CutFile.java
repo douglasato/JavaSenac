@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.io.*;
 
 public class CutFile extends UploadFile{
-    public static void CutFile() {
+    public static void cutFile() {
         try {
             JFileChooser chooser = new JFileChooser();
 
@@ -44,6 +44,6 @@ public class CutFile extends UploadFile{
     }
 
     public static void main(String[] args) {
-        CutFile();
+        cutFile();
     }
 }
