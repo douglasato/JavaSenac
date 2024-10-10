@@ -4,6 +4,7 @@ import javax.swing.*;
 import static java.nio.file.StandardCopyOption.*;
 import java.nio.file.*;
 import java.io.*;
+import java.awt.*;
 
 public class CadastrarFoto {
     public static void main(String[] args) {
@@ -20,17 +21,19 @@ public class CadastrarFoto {
                 if(returnImg1 == JFileChooser.APPROVE_OPTION) {
                     System.out.println("Você escolheu essa imagem: " + chooser.getSelectedFile().getName().split("."));
 
-                    String[] ImgChooser = chooser.getSelectedFile().getName().split(".");
+                    String[] ImgChooser = chooser.getSelectedFile().getName().split("[.]");
+                    //imagem.paisagem.jpg -> vetor com 3 posições
 
-                    fileName = ImgChooser[length - 1];
+                    fileName = ImgChooser[ImgChooser.length - 1];
 
                     fileName = "Nome_" + Math.random() + "." + fileName;
+                    //Nome_3409099.jpg
 
                     fileFullPath = chooser.getSelectedFile().getAbsolutePath();
                     System.out.println("File Full Path: " + fileFullPath);
                 }
 
-            String folderFullPath = "img";
+            String folderFullPath = ".//img/";
 
                 Path pathOrigin = Paths.get(fileFullPath);
                 Path pathDestination = Paths.get(folderFullPath + "\\" + fileName);
