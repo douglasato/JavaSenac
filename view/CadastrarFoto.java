@@ -33,7 +33,7 @@ public class CadastrarFoto {
                     System.out.println("File Full Path: " + fileFullPath);
                 }
 
-            String folderFullPath = ".//img/";
+            String folderFullPath = "C:\\Users\\uept02-user\\Documents\\DG\\27.09.24\\ModeloProfessor\\view\\img";
 
                 Path pathOrigin = Paths.get(fileFullPath);
                 Path pathDestination = Paths.get(folderFullPath + "\\" + fileName);
