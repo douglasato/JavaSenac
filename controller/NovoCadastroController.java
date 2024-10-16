@@ -1,4 +1,5 @@
 package controller;
+
 import model.*;
 import view.*;
 import javax.swing.*;
@@ -33,11 +34,11 @@ public class NovoCadastroController extends NovoCadastroView {
     }
 
     public static void exibirMenu() {
-        MenuFrameView.appMenuFrame.setVisible(true);
+        MenuFrame.appMenuFrame.setVisible(true);
     }
 
     public static void fecharNovoCadastroView() {
-        MenuFrameView.appMenuFrame.dispose();
+        MenuFrame.appMenuFrame.dispose();
     }
 
     public static void selecionarArquivoController() {
