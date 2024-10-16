@@ -128,11 +128,12 @@ public class MenuFrame extends JFrame {
         }
     }
 
-    public static MenuFrame menuFrame = null;
+    public static MenuFrame appMenuFrame = null;
+
     public static void main(String[] args) {
+        appMenuFrame = new MenuFrame();
         JFrame f = new JFrame("Imagem");
         f.setVisible(true);
-        menuFrame = new MenuFrame();
-        menuFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        appMenuFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
